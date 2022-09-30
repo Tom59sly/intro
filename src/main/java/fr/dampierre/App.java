@@ -1,12 +1,94 @@
 package fr.dampierre;
 
-import java.util.Random;
 import java.util.Scanner;
+// import java.util.Random;
 
 public class App {
+
+
+    // COURS IF/ELSE
     
     public static void main(String[] args) {
-        System.out.println("Bonjour");  
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("Entrez un nombre :");
+        int nombre = clavier.nextInt();
+        clavier.close();
+
+        if (nombre % 2 == 0){
+            System.out.println(nombre + " est pair.");
+        }
+        else{
+            System.out.println(nombre + " est impair");
+        }
+    }
+
+    // public static void main(String[] args) {
+
+    //     int salaire = 400;
+    //     int prime = 250;
+    //     int quota = 10;
+    //     Scanner clavier = new Scanner(System.in);
+        
+    //     System.out.println("Entrez nombre de ventes : ");
+    //     int nbVentes = clavier.nextInt();
+    //     clavier.close();
+
+    //     if (nbVentes >= quota){
+    //         salaire += prime;
+    //         System.out.println("Félicitations ! Vous avez rempli le quota.");
+    //     }
+    //     else{
+    //         int nbVentesManquantes = quota - nbVentes;
+    //         System.out.println("Il vous manque " + nbVentesManquantes + " ventes pour atteindre le quota");
+    //     }
+    //     System.out.println("Votre salaire est de :" + salaire);
+    // }
+
+    // public static void main(String[] args) {
+
+    //     int salaire = 400;
+    //     int prime = 250;
+    //     int quota = 10;
+    //     Scanner clavier = new Scanner(System.in);
+        
+    //     System.out.println("Entrez nombre de ventes : ");
+    //     int nbVentes = clavier.nextInt();
+    //     clavier.close();
+
+    //     if (nbVentes >= quota){
+    //         salaire += prime;
+    //     }
+
+    //     System.out.println(salaire);
+    // }
+
+    // public static void main(String[] args) {
+    //     Scanner clavier = new Scanner(System.in);
+        
+    //     System.out.println("Entrez les heures : ");
+    //     int heures = clavier.nextInt();
+    //     System.out.println("Entrez les minutes : ");
+    //     int minutes = clavier.nextInt();
+    //     System.out.println("Entrez les secondes : ");
+    //     int secondes = clavier.nextInt();
+    //     clavier.close();
+
+    //     int secondesDepuisMinuit = heures * 60 * 60 + minutes * 60 + secondes;
+
+    //     System.out.println("Il s'est écoulé " + secondesDepuisMinuit + " secondes depuis minuit");
+    // }
+    
+    // public static void main(String[] args) {
+    //     int heures = 12;
+    //     int minutes = 34;
+    //     int secondes = 56;
+
+    //     int secondesDepuisMinuit = heures * 60 * 60 + minutes * 60 + secondes;
+
+    //     System.out.println("Il s'est écoulé " + secondesDepuisMinuit + " secondes depuis minuit");
+    // }
+    
+    // public static void main(String[] args) {
 
         // Récupérer le nombre d'heures travaillées
         // int heureTravaillees = 120;
@@ -15,15 +97,15 @@ public class App {
         // int heureTravaillees = clavier.nextInt();
 
         // Récupérer le taux horaire 
-        // // double tauxHoraire = 10.5;
+        // double tauxHoraire = 10.5;
         // System.out.println("Entrer le taux Horaire : ");
         // double tauxHoraire = clavier.nextDouble();
 
 
-        // // Multiplier le nombre d'heures par le taux horaire
+        // Multiplier le nombre d'heures par le taux horaire
         // double salaireBrut = tauxHoraire * heureTravaillees;
 
-        // // Afficher le résulltat
+        // Afficher le résulltat
         // System.out.println("Le salaire brut est de : " + salaireBrut);
 
 
@@ -46,34 +128,34 @@ public class App {
         
         // clavier.close();
 
-        // String phrase = "Il était une fois un " + mot1 + " qui avait aussi " + nombre + " " + mot2 + ". Cela le rendait très " + adjectif + ".";
+        // String phrase = "Il était une fois un " + mot1 + " qui avait aussi " + nombre + " " + mot2 + ". Cela le rendait très" + "adjectif "+ ".";
 
         // System.out.println(phrase);
 
 
-        // Exercice 1
+        //Exercice 1
 
-        int heure = 12;
-        int minutes = 34;
-        int secondes = 56;
-        int resSecondes = heure * 3600 + minutes * 60 + secondes;
-        System.out.println("Il s'est écoulé " + resSecondes +" secondes depuis minuit.");
+        // int heure = 12;
+        // int minutes = 34;
+        // int secondes = 56;
+        // int resSecondes = heure * 3600 + minutes * 60 + secondes;
+        // System.out.println("Il s'est écoulé " + resSecondes +" secondes depuis minuit.");
 
         // Exercice 2
 
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Entrer les heures :");
-        int heure1 = keyboard.nextInt();
+        // Scanner keyboard = new Scanner(System.in);
+        // System.out.println("Entrer les heures :");
+        // int heure1 = keyboard.nextInt();
 
-        System.out.println("Entrer les minutes :");
-        int minutes1 = keyboard.nextInt();
+        // System.out.println("Entrer les minutes :");
+        // int minutes1 = keyboard.nextInt();
 
-        System.out.println("Entrer les secondes :");
-        int secondes1 = keyboard.nextInt();
-        keyboard.close();
+        // System.out.println("Entrer les secondes :");
+        // int secondes1 = keyboard.nextInt();
+        // keyboard.close();
 
-        int resSecondes1 = heure1 * 3600 + minutes1 * 60 + secondes1;
-        System.out.println("Il s'est écoulé " + resSecondes1 +" secondes depuis minuit.");
+        // int resSecondes1 = heure1 * 3600 + minutes1 * 60 + secondes1;
+        // System.out.println("Il s'est écoulé " + resSecondes1 +" secondes depuis minuit.");
 
         // Exercice 3
 
@@ -123,6 +205,4 @@ public class App {
             
         //     System.out.println("Vous étiez à "+ Math.abs(nb - NombreUtilisateur) + " de la bonne réponse.");
         // }
-        
-        }
 }
