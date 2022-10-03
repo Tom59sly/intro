@@ -3,12 +3,11 @@ package fr.dampierre;
 import java.util.Scanner;
 // import java.util.Random;
 
+import javax.annotation.processing.SupportedSourceVersion;
+
 public class App {
-
-
-    // COURS IF/ELSE
-    
-    public static void main(String[] args) {
+    // TP2
+    public static void demanderEntierEtAfficherParite() {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Entrez un nombre :");
         int nombre = clavier.nextInt();
@@ -21,6 +20,41 @@ public class App {
             System.out.println(nombre + " est impair");
         }
     }
+    
+    public static void LettreCouleurAssociee() {
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("Quelle couleur souhaitez vous ?");
+        String couleur = clavier.nextLine();
+        couleur.toUpperCase();
+        clavier.close();
+        if (couleur.equals("R")) {
+            System.out.println("Vous avez choisi le rouge.");            
+        }
+        else if (couleur.equals("V")) {
+            System.out.println("Vous avez choisi le vert.");
+        }
+        else if (couleur.equals("B")) {
+            System.out.println("Vous avez choisi le bleu.");
+        }
+        else {
+            System.out.println("Connais pas.");
+        }
+    }
+
+    public static boolean estCapitalise(String mot) {
+        if (Character.isUpperCase(mot.charAt(0)) == true) {
+            return true;
+        }
+        else {
+            return false;
+        }        
+    }
+
+    public static int nbLettres(String phrase) {
+        return phrase.length();        
+    }
+    
+    // COURS IF/ELSE
 
     // public static void main(String[] args) {
 
@@ -205,4 +239,11 @@ public class App {
             
         //     System.out.println("Vous étiez à "+ Math.abs(nb - NombreUtilisateur) + " de la bonne réponse.");
         // }
+    public static void main(String[] args) {
+        // demanderEntierEtAfficherParite(); // 1
+        // LettreCouleurAssociee(); // 4
+        System.out.println(estCapitalise("Bonjour")); // 5
+        System.out.println(estCapitalise("bonjour")); // 5
+        System.out.println(nbLettres("AZERTY"));
+    }
 }
