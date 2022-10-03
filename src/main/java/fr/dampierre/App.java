@@ -3,8 +3,6 @@ package fr.dampierre;
 import java.util.Scanner;
 // import java.util.Random;
 
-import javax.annotation.processing.SupportedSourceVersion;
-
 public class App {
     // TP2
     public static void demanderEntierEtAfficherParite() {
@@ -54,6 +52,14 @@ public class App {
         return phrase.length();        
     }
     
+    public static void main(String[] args) {
+        // demanderEntierEtAfficherParite(); // 1
+        // LettreCouleurAssociee(); // 4
+        System.out.println(estCapitalise("Bonjour")); // 5
+        System.out.println(estCapitalise("bonjour")); // 5
+        System.out.println(nbLettres("AZERTY"));
+    }
+
     // COURS IF/ELSE
 
     // public static void main(String[] args) {
@@ -239,11 +245,5 @@ public class App {
             
         //     System.out.println("Vous étiez à "+ Math.abs(nb - NombreUtilisateur) + " de la bonne réponse.");
         // }
-    public static void main(String[] args) {
-        // demanderEntierEtAfficherParite(); // 1
-        // LettreCouleurAssociee(); // 4
-        System.out.println(estCapitalise("Bonjour")); // 5
-        System.out.println(estCapitalise("bonjour")); // 5
-        System.out.println(nbLettres("AZERTY"));
-    }
+    
 }
