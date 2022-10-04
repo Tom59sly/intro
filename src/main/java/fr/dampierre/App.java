@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class App {
     // TP2
+ 
     public static void demanderEntierEtAfficherParite() {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Entrez un nombre :");
@@ -23,15 +24,14 @@ public class App {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Quelle couleur souhaitez vous ?");
         String couleur = clavier.nextLine();
-        couleur.toUpperCase();
         clavier.close();
-        if (couleur.equals("R")) {
+        if (couleur.equals("R") || couleur.equals("r")) {
             System.out.println("Vous avez choisi le rouge.");            
         }
-        else if (couleur.equals("V")) {
+        else if (couleur.equals("V") || couleur.equals("v")) {
             System.out.println("Vous avez choisi le vert.");
         }
-        else if (couleur.equals("B")) {
+        else if (couleur.equals("B") || couleur.equals("b")) {
             System.out.println("Vous avez choisi le bleu.");
         }
         else {
@@ -55,13 +55,48 @@ public class App {
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
         // LettreCouleurAssociee(); // 4
-        System.out.println(estCapitalise("Bonjour")); // 5
-        System.out.println(estCapitalise("bonjour")); // 5
-        System.out.println(nbLettres("AZERTY"));
-    }
+        // System.out.println(estCapitalise("Bonjour")); // 5
+        // System.out.println(estCapitalise("bonjour")); // 5
+        // System.out.println(nbLettres("AZERTY")); // 6
+        CafeCreme();    
+    }   
 
+    // COURS OPERATEURS LOGIQUES
+    // && -> ET
+    // || -> OU
+    // ! -> 
     // COURS IF/ELSE
+    public static void CafeCreme() {
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("Pièces de 1 cents ? ");
+        int piece1 = clavier.nextInt();
+        System.out.println("Pièces de 2 cents ? ");
+        int piece2 = clavier.nextInt();
+        System.out.println("Pièces de 5 cents ? ");
+        int piece5 = clavier.nextInt();
+        System.out.println("Pièces de 10 cents ? ");
+        int piece10 = clavier.nextInt();
+        System.out.println("Pièces de 20 cents ? ");
+        int piece20 = clavier.nextInt();
+        System.out.println("Pièces de 50 cents ? ");
+        int piece50 = clavier.nextInt();
+        clavier.close();
 
+        int totalPiece = piece1 + piece2 * 2 + piece5 * 5 + piece10 * 10 + piece20 * 20 + piece50 * 50; // EN CENTIMES
+        // double totalPiece = piece1 * 0.01 + piece2 * 0.02 + piece5 * 0.05+ piece10 * 0.1 + piece20 * 0.2 + piece50 *0.5; // EN EURO
+        // Remplacer 100 par 1 EN EURO
+        if (totalPiece < 100) {
+            int pieceManquante = 100 - totalPiece;
+            System.out.println("Il vous manque " + pieceManquante + " pour prendre un café." );            
+        }
+        else if (totalPiece > 100) {
+            int pieceSupplementaire = totalPiece - 100;
+            System.out.println("Il vous restera " + pieceSupplementaire + " après avoir pris un café.");
+        }
+        else {
+            System.out.println("Vous avez exactement de quoi payer le café !");
+        }
+    }
     // public static void main(String[] args) {
 
     //     int salaire = 400;
