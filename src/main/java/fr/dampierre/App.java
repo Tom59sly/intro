@@ -1,5 +1,6 @@
 package fr.dampierre;
 
+import java.time.YearMonth;
 import java.util.Scanner;
 // import java.util.Random;
 
@@ -67,7 +68,10 @@ public class App {
         }
     }
     public static boolean estBissextile(int annee) {
-        if ((annee % 4 == 0 || annee % 400 == 0 )&& annee % 100 != 0){
+        if (annee % 400 == 0){
+            return true;
+        }
+        else if (annee % 4 == 0 && annee % 100 != 0){
             return true;
         }
         else{
@@ -75,8 +79,40 @@ public class App {
         }
         
     }
+    public static int nbJoursDuMois2(int mois, int annee) {
+        boolean anneeBisextile = estBissextile(annee);
 
-    
+        if (anneeBisextile && mois == 2){
+            return 29;
+        }
+        else{
+            return nbJoursDuMois(mois);
+        }
+    }
+
+    public static int nbJoursDuMois3(int mois, int annee) {
+        YearMonth date = YearMonth.of(annee, mois);
+        return date.lengthOfMonth();
+    }
+
+    public static void sommePairsEtMax(Scanner clavier) {
+        System.out.println("Combien d'entiers ? ");
+        int nbEntiers = clavier.nextInt();
+        int additionEntiersPairs = 0;
+        int plusGrandEntier = 0;
+
+        for (int i = 0; i < nbEntiers; i++) {
+            System.out.println("Entrez un entier :");
+            int entier = clavier.nextInt();
+            if (entier % 2 == 0) {
+                additionEntiersPairs += entier;                
+            }
+            if (plusGrandEntier < entier || i == 0){
+                plusGrandEntier = entier;
+            }
+        }
+        System.out.println("Somme des nombres pairs = "+ additionEntiersPairs +" , plus grand nombre = " + plusGrandEntier +".");
+    }
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
         // LettreCouleurAssociee(); // 4
@@ -84,7 +120,10 @@ public class App {
         // System.out.println(estCapitalise("bonjour")); // 5
         // System.out.println(nbLettres("AZERTY")); // 6
         // System.out.println(nbJoursDuMois(6));
-        System.out.println(estBissextile(2000));
+        // System.out.println(estBissextile(2100));
+        // System.out.println(nbJoursDuMois2(2, 2000));
+        // System.out.println(nbJoursDuMois3(12, 2003));
+        sommePairsEtMax(new Scanner(System.in));
         // CafeCreme();    
     }   
 
