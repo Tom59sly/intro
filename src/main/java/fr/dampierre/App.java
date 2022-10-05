@@ -51,6 +51,31 @@ public class App {
     public static int nbLettres(String phrase) {
         return phrase.length();        
     }
+
+    public static int nbJoursDuMois(int nbMois) {
+        if (nbMois == 1 || nbMois == 3 || nbMois == 5 || nbMois == 7 || nbMois == 8 || nbMois == 10 || nbMois == 12 ) {
+            return 31;
+        }
+        else if (nbMois == 2) {
+            return 28;
+        }
+        else if (nbMois == 4 || nbMois == 6 || nbMois == 9 || nbMois == 11){
+            return 30;
+        }
+        else{
+            return 0;
+        }
+    }
+    public static boolean estBissextile(int annee) {
+        if ((annee % 4 == 0 || annee % 400 == 0 )&& annee % 100 != 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
     
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
@@ -58,7 +83,9 @@ public class App {
         // System.out.println(estCapitalise("Bonjour")); // 5
         // System.out.println(estCapitalise("bonjour")); // 5
         // System.out.println(nbLettres("AZERTY")); // 6
-        CafeCreme();    
+        // System.out.println(nbJoursDuMois(6));
+        System.out.println(estBissextile(2000));
+        // CafeCreme();    
     }   
 
     // COURS OPERATEURS LOGIQUES
