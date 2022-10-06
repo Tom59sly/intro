@@ -1,6 +1,7 @@
 package fr.dampierre;
 
 import java.time.YearMonth;
+import java.util.Random;
 import java.util.Scanner;
 // import java.util.Random;
 
@@ -25,6 +26,7 @@ public class App {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Quelle couleur souhaitez vous ?");
         String couleur = clavier.nextLine();
+        couleur = couleur.trim(); // Enlève espace avant et après
         clavier.close();
         if (couleur.equals("R") || couleur.equals("r")) {
             System.out.println("Vous avez choisi le rouge.");            
@@ -106,7 +108,7 @@ public class App {
             int entier = clavier.nextInt();
             if (entier % 2 == 0) {
                 additionEntiersPairs += entier;                
-            }
+            } 
             if (plusGrandEntier < entier || i == 0){
                 plusGrandEntier = entier;
             }
@@ -123,15 +125,37 @@ public class App {
         // System.out.println(estBissextile(2100));
         // System.out.println(nbJoursDuMois2(2, 2000));
         // System.out.println(nbJoursDuMois3(12, 2003));
-        sommePairsEtMax(new Scanner(System.in));
-        // CafeCreme();    
+        // sommePairsEtMax(new Scanner(System.in));
+        // CafeCreme();
+        JeuDe();
     }   
+
+    // Cours Boucles
+    public static void JeuDe() {
+        int nbCases = 20;
+        int casesParcourues = 0;
+        int nbLancer = 5;
+        Random generator = new Random();
+        for (int i = 0; i < nbLancer && casesParcourues != 20; i++) {
+            int lancer = generator.nextInt(6) + 1;
+            casesParcourues += lancer;
+            System.out.println(casesParcourues + " " + i + " " + lancer);
+        }
+
+        if (casesParcourues == nbCases) {
+            System.out.println("Gagné");
+        } else {
+            System.out.println("Perdu vous avez parcouru " + casesParcourues);
+        }
+    }
+
 
     // COURS OPERATEURS LOGIQUES
     // && -> ET
     // || -> OU
-    // ! -> 
+    // ! ->  non
     // COURS IF/ELSE
+
     public static void CafeCreme() {
         Scanner clavier = new Scanner(System.in);
         System.out.println("Pièces de 1 cents ? ");
