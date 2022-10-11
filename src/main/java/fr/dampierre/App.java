@@ -135,20 +135,24 @@ public class App {
         int nbCases = 20;
         int casesParcourues = 0;
         int nbLancer = 5;
-        boolean gagne = false;
+        int nbEssai = 0;
+        boolean estGagne = false;
         Random generator = new Random();
-        while (!gagne) {
+        while (!estGagne) {
+            nbEssai += 1;
             casesParcourues = 0;
             for (int i = 0; i < nbLancer && casesParcourues != 20; i++) {
                 int lancer = generator.nextInt(6) + 1;
                 casesParcourues += lancer;
-                System.out.println("Vous avez obtenu le nombre : " +lancer + " ce qui donne " + casesParcourues + " nombre de cases parcourues");
+            System.out.println("Vous avez obtenu le nombre : " + lancer + ", " + casesParcourues + " cases parcourues");
             }
 
             if (casesParcourues == nbCases) {
-                System.out.println("Gagné");
-                gagne = true;
-            } else {
+                System.out.println("Gagné en : " + nbEssai + " coups.");
+                estGagne = true;
+            } 
+            
+            else {
                 System.out.println("Perdu vous avez parcouru " + casesParcourues);
             }
         }
