@@ -115,6 +115,184 @@ public class App {
         }
         System.out.println("Somme des nombres pairs = "+ additionEntiersPairs +" , plus grand nombre = " + plusGrandEntier +".");
     }
+    // TP3 - BOUCLES
+    public static void suite2() {
+        int nombre0 = 0;
+        int nombre1 = 1;
+        int resultat;
+        System.out.println(nombre0 + " " + nombre1);          
+        for (int i = 1; i < 20; i++) {
+            resultat = nombre0 + nombre1;
+            System.out.println(resultat);
+            nombre0 = nombre1;
+            nombre1 = resultat;
+        }
+    }
+    public static void suite3() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i * i);
+        }
+    }
+    public static void suite4() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(Math.round(Math.pow(i, 2)) + " ");
+        }
+    }
+
+    public static void motif1() {
+        for (int j = 1; j <= 40; j++) {
+            System.out.print('-');
+        }
+        System.out.println();
+        for (int j = 0; j < 10; j++) {
+            System.out.print("_-^-");
+        }
+        System.out.println();
+        for (int i = 0; i < 2; i++) {
+            for (int j = 1; j < 10; j++) {
+                System.out.print(j+""+j);         
+            }
+            System.out.print("00");
+        }
+        System.out.println();
+        for (int j = 1; j <= 40; j++) {
+            System.out.print('-');
+        }
+    }
+
+    public static void motif2() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif3() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif4() {
+        for (int i = 1; i <= 6; i++) {
+            for (int j = 1; j<=i ; j++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif5() {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 5; j >= i; j--) {
+                System.out.print(" ");
+            }
+            System.out.print(i);
+            System.out.println();
+        }
+    }
+
+    public static void motif6() {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 5; j >= i; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+            System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif7() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print(j);
+                }
+            }  
+            System.out.println();          
+        }
+        
+    }
+
+    public static void motif8() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 9; j >= 0; j--) {
+                for (int k = 0; k < 5; k++) {
+                    System.out.print(j);
+                }
+            }  
+            System.out.println();          
+        }
+    }
+
+    public static void motif9() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 9; j > 0; j--) {
+                for (int j2 = 0; j2 < j; j2++) {
+                    System.out.print(j);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif10() {
+        for (int i = 1; i <= 9; i+=2) {
+            for (int j = 0; j < (11 - i) / 2; j++) {
+                System.out.print("-");
+            }
+
+            for (int j = 0; j <i; j++) {
+                System.out.print(i);
+            }
+            for (int j = 0; j < (11 - i) / 2; j++) {
+                System.out.print("-");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void motif11() {
+        for (int i = 0; i <= 5; i+=1) {
+            for (int j = 0; j < i*2; j++) {
+                System.out.print("\\");
+            }
+            for (int j = 0; j <= 22 - i*4 -1 ; j++) {
+                System.out.print("!");
+            }
+            for (int j = 0; j < i*2; j++) {
+                System.out.print("/");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void motif11Bis(int hauteur) {
+        // Valeur début 
+        for (int i = 0; i < hauteur; i+=1) {
+            for (int j = 0; j < i*2; j++) {
+                System.out.print("\\");
+            }   
+            for (int j = 0; j <= (hauteur * 4 - i*4) - 3; j++) {
+                System.out.print("!");
+            }
+            for (int j = 0; j < i*2; j++) {
+                System.out.print("/");
+            }
+            System.out.println();
+        }
+    }
+
+    // TP4 - Jeu a deviner
+
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
         // LettreCouleurAssociee(); // 4
@@ -127,8 +305,24 @@ public class App {
         // System.out.println(nbJoursDuMois3(12, 2003));
         // sommePairsEtMax(new Scanner(System.in));
         // CafeCreme();
-        JeuDe();
+        // JeuDe();
+        // suite2();
+        // suite3();
+        // suite4();
+        // motif1();
+        // motif2();
+        // motif3();
+        // motif4();
+        // motif5();
+        // motif6();
+        // motif7();
+        // motif8();
+        // motif9();
+        // motif10();
+        // motif11();
+        // motif11Bis(8);
     }   
+
 
     // Cours Boucles
     public static void JeuDe() {
