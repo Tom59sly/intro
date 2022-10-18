@@ -290,7 +290,25 @@ public class App {
             System.out.println();
         }
     }
+    public static void motif12(int taille) {
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
+                System.out.print("+===");
+            }
+            System.out.print("+\n");
+            for (int k = 0; k < 3; k++) {
+                for (int j = 0; j < taille; j++) {
+                    System.out.print("|   ");
+                }
+                System.out.print("|\n");
+            }
+        }
+        for (int j = 0; j < taille; j++) {
+            System.out.print("+===");
+        } System.out.print("+\n");
+    }
 
+    
     // TP4 - Jeu a deviner
     public static void devinerNombreVersion1() {
         System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
@@ -678,6 +696,7 @@ public class App {
         // motif10();
         // motif11();
         // motif11Bis(8);
+        motif12(3);
         // devinerNombreVersion1();
         // devinerNombreVersion2();
         // devinerNombreVersion3();
@@ -686,7 +705,7 @@ public class App {
         // devinerNombreVersion6();
         // devinerNombreVersion7(3);
         // devinerNombreVersion8(10000);
-        devinerNombreVersion9(10000);
+        // devinerNombreVersion9(10000);
     }   
 
 
