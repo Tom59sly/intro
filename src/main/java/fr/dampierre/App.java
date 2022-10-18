@@ -521,9 +521,135 @@ public class App {
             if (continuer.equals("n")) {
                 System.out.println("Merci d'avoir joué !");
             }
+
+            clavier.close();
         }
     }
 
+    public static void devinerNombreVersion6() {
+        System.out.println("Je pense à un nombre et j'essaie de deviner lequel sans tricher");
+        Random random = new Random();
+        int nombreATrouver = random.nextInt(100) + 1;
+        int nombreOrdinateur;
+        int nbTentatives = 0;
+        boolean gagne = false;
+
+        while (!gagne) {
+            nombreOrdinateur = random.nextInt(100) +1;
+            System.out.println("Je tente : " + nombreOrdinateur);
+            nbTentatives += 1;
+
+            if (nombreATrouver == nombreOrdinateur) {
+                gagne = true;
+                System.out.println("Gagné ! \nIl m'aura fallu " + nbTentatives + " tentatives.");
+            }
+            else if (nombreATrouver > nombreOrdinateur){
+                System.out.println("Trop petit.");
+            }
+            else {
+                System.out.println("Trop grand.");
+            }
+        }
+    }
+
+    public static void devinerNombreVersion7(int nbParties) {
+        double moyenneParties = 0;
+        
+        for (int i = 1; i <= nbParties ; i++) { // LAncement du jeu
+            System.out.println("Je pense à un nombre et j'essaie de deviner lequel sans tricher");
+            Random random = new Random();
+            int nombreATrouver = random.nextInt(100) + 1;
+            int nombreOrdinateur = 0;
+            int nbTentatives = 0;
+            boolean gagne = false;
+
+            while (!gagne) {
+                nombreOrdinateur = random.nextInt(100) +1;
+                System.out.println("Je tente : " + nombreOrdinateur);
+                nbTentatives += 1;
+
+                if (nombreATrouver == nombreOrdinateur) {
+                    gagne = true;
+                    System.out.println("Gagné ! \nIl m'aura fallu " + nbTentatives + " tentatives.");
+                }
+                else if (nombreATrouver > nombreOrdinateur){
+                    System.out.println("Trop petit.");
+                }
+                else {
+                    System.out.println("Trop grand.");
+                }
+            }
+            moyenneParties += nbTentatives;
+        }
+
+        moyenneParties /= nbParties;
+        System.out.println("En moyenne, sur " + nbParties + " parties, il m'a fallu " + moyenneParties + " tentatives.");
+    } 
+
+    public static void devinerNombreVersion8(int nbParties) {
+        double moyenneParties = 0;
+        
+        for (int i = 1; i <= nbParties ; i++) { // LAncement du jeu
+            Random random = new Random();
+            int nombreATrouver = random.nextInt(100) + 1;
+            int nombreOrdinateur = 0;
+            int nbTentatives = 0;
+            boolean gagne = false;
+            System.out.print(i + " - ");
+
+            while (!gagne) {
+                nombreOrdinateur = random.nextInt(100) +1;
+                nbTentatives += 1;
+
+                if (nombreATrouver == nombreOrdinateur) {
+                    gagne = true;
+                    System.out.print("["+ nbTentatives + "]");
+                }
+                else {
+                    System.out.print(nombreOrdinateur + " ");
+                }
+            }
+            System.out.println();
+            moyenneParties += nbTentatives;
+        }
+
+        moyenneParties /= nbParties;
+        System.out.println("En moyenne, sur " + nbParties + " parties, il m'a fallu " + moyenneParties + " tentatives.");
+    }
+
+    public static void devinerNombreVersion9(int nbParties) {
+        double moyenneParties = 0;
+        
+        for (int i = 1; i <= nbParties ; i++) { // LAncement du jeu
+            Random random = new Random();
+            int nombreATrouver = random.nextInt(100) + 1;
+            int nombreOrdinateur = 0;
+            int nbTentatives = 0;
+            boolean gagne = false;
+            int debut = 1;
+            int fin = 100;
+            int indiceMedian; // Moyenne des indices (50 au départ)
+
+            while (!gagne) {
+                indiceMedian = (fin+debut) /2;
+                nombreOrdinateur = indiceMedian;
+                nbTentatives += 1;
+
+                if (nombreATrouver == nombreOrdinateur) {
+                    gagne = true;
+                }
+                else if (nombreOrdinateur > nombreATrouver) {
+                    fin = indiceMedian - 1;                    
+                }
+                else{
+                    debut = indiceMedian + 1 ;
+                }
+            }
+            moyenneParties += nbTentatives;
+        }
+        moyenneParties /= nbParties;
+        System.out.println("En moyenne, sur " + nbParties + " parties, il m'a fallu " + moyenneParties + " tentatives.");
+    }
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
         // LettreCouleurAssociee(); // 4
@@ -556,7 +682,11 @@ public class App {
         // devinerNombreVersion2();
         // devinerNombreVersion3();
         // devinerNombreVersion4();
-        devinerNombreVersion5();
+        // devinerNombreVersion5();
+        // devinerNombreVersion6();
+        // devinerNombreVersion7(3);
+        // devinerNombreVersion8(10000);
+        devinerNombreVersion9(10000);
     }   
 
 
