@@ -292,6 +292,237 @@ public class App {
     }
 
     // TP4 - Jeu a deviner
+    public static void devinerNombreVersion1() {
+        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+        Random random = new Random();
+        int nombreADeviner = random.nextInt(100) +1;
+        
+        Scanner clavier = new Scanner(System.in);
+
+        System.out.println("Entrez un nombre : ");
+        int nombreUtilisateur = clavier.nextInt();
+        clavier.close();
+
+        System.out.println("Vous proposez : " + nombreUtilisateur);
+        System.out.println("Le nombre auquel je pensais était : " + nombreADeviner);
+        
+        if (nombreUtilisateur == nombreADeviner) {
+            System.out.println("Gagné !");
+        }
+        else {
+            System.out.println("Vous étiez à " + Math.abs(nombreUtilisateur-nombreADeviner) + " de la bonne réponse.");
+        }
+    }
+
+    public static void devinerNombreVersion2() {
+        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+        Random random = new Random();
+        int nombreADeviner = random.nextInt(100) +1;
+        
+        Scanner clavier = new Scanner(System.in);
+
+        System.out.println("Entrez un nombre : ");
+        int nombreUtilisateur = clavier.nextInt();
+        clavier.close();
+
+        System.out.println("Vous proposez : " + nombreUtilisateur);
+        System.out.println("Le nombre auquel je pensais était : " + nombreADeviner);
+        
+        if (nombreUtilisateur == nombreADeviner) {
+            System.out.println("Quel bol, vous avez trouvé !");
+        }
+        else if (nombreUtilisateur > nombreADeviner) {
+            int nbCasesDepassees = nombreUtilisateur - nombreADeviner;
+            System.out.println("Perdu ! Vous avez dépassé de : " + nbCasesDepassees);
+            
+        }
+        else {
+            int nbCasesManquantes = nombreADeviner - nombreUtilisateur;
+            System.out.println("Perdu ! Il vous manquait : " + nbCasesManquantes);
+        }
+    }
+
+    public static void devinerNombreVersion3() {
+        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+        Random random = new Random();
+        int nombreADeviner = random.nextInt(100) + 1;
+        
+        Scanner clavier = new Scanner(System.in);
+
+        System.out.println("Entrez un nombre : ");
+        int nombreUtilisateur = clavier.nextInt();
+
+        int nbTentatives = 1;
+        boolean estGagne = false;
+
+        if (nombreUtilisateur == nombreADeviner) {
+            estGagne = true;
+        }
+        else if (nombreUtilisateur > nombreADeviner) {
+            System.out.println("Trop grand !");            
+        }
+        else {
+            System.out.println("Trop petit !");
+        }
+
+        while (!estGagne) {
+            System.out.println("Entrez un nombre : ");
+            nombreUtilisateur = clavier.nextInt();
+
+            nbTentatives += 1;
+
+            if (nombreADeviner == nombreUtilisateur) {
+                estGagne = true;
+            }
+
+            else if (nombreADeviner > nombreUtilisateur) {
+                System.out.println("Trop petit");
+            }
+
+            else {
+                System.out.println("Trop grand !");
+            }
+        }
+        
+        clavier.close();
+        System.out.println("Gagné !");
+        System.out.println("Il vous aura fallu " + nbTentatives + " tentatives");
+    }
+
+    public static void devinerNombreVersion4() {
+        int nbMin = 1;
+        int nbMax = 100;
+
+        System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+        Random random = new Random();
+        int nombreADeviner = random.nextInt(nbMax);
+        
+        Scanner clavier = new Scanner(System.in);
+
+        System.out.println("Entrez un nombre : ");
+        int nombreUtilisateur = clavier.nextInt();
+
+        int nbTentatives = 0;
+        boolean estGagne = false;
+
+        if (nombreUtilisateur == nombreADeviner) {
+            estGagne = true;
+            nbTentatives += 1;
+        }
+
+        else if (nombreUtilisateur < nbMin || nombreUtilisateur > nbMax){
+            System.out.println("Merci d'entrer un nombre entre 1 et 100.");
+        }
+
+        else if (nombreUtilisateur > nombreADeviner) {
+            System.out.println("Trop grand !");
+            nbTentatives += 1;
+        }
+        else {
+            System.out.println("Trop petit !");
+            nbTentatives += 1;
+        }
+
+        while (!estGagne) {
+            System.out.println("Entrez un nombre : ");
+            nombreUtilisateur = clavier.nextInt();
+
+            if (nombreADeviner == nombreUtilisateur) {
+                estGagne = true;
+                nbTentatives += 1;
+            }
+
+            else if (nombreUtilisateur < nbMin || nombreUtilisateur > nbMax){
+                System.out.println("Merci d'entrer un nombre entre 1 et 100.");
+            }
+
+            else if (nombreADeviner > nombreUtilisateur) {
+                System.out.println("Trop petit");
+                nbTentatives += 1;
+            }
+
+            else {
+                System.out.println("Trop grand !");
+                nbTentatives += 1;
+            }
+        }
+        clavier.close();
+        System.out.println("Gagné !");
+        System.out.println("Il vous aura fallu " + nbTentatives + " tentative(s)");
+    }
+
+    public static void devinerNombreVersion5() {
+        String continuer = "o";
+        while (continuer.equals("o")) {
+            int nbMin = 1;
+            int nbMax = 100;
+
+            System.out.println("Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.");
+            Random random = new Random();
+            int nombreADeviner = random.nextInt(nbMax);
+            
+            Scanner clavier = new Scanner(System.in);
+
+            System.out.println("Entrez un nombre : ");
+            int nombreUtilisateur = clavier.nextInt();
+
+            int nbTentatives = 0;
+            boolean estGagne = false;
+
+            if (nombreUtilisateur == nombreADeviner) {
+                estGagne = true;
+                nbTentatives += 1;
+            }
+
+            else if (nombreUtilisateur < nbMin || nombreUtilisateur > nbMax){
+                System.out.println("Merci d'entrer un nombre entre 1 et 100.");
+            }
+
+            else if (nombreUtilisateur > nombreADeviner) {
+                System.out.println("Trop grand !");
+                nbTentatives += 1;
+            }
+            else {
+                System.out.println("Trop petit !");
+                nbTentatives += 1;
+            }
+
+            while (!estGagne) {
+                System.out.println("Entrez un nombre : ");
+                nombreUtilisateur = clavier.nextInt();
+
+                if (nombreADeviner == nombreUtilisateur) {
+                    estGagne = true;
+                    nbTentatives += 1;
+                }
+
+                else if (nombreUtilisateur < nbMin || nombreUtilisateur > nbMax){
+                    System.out.println("Merci d'entrer un nombre entre 1 et 100.");
+                }
+
+                else if (nombreADeviner > nombreUtilisateur) {
+                    System.out.println("Trop petit");
+                    nbTentatives += 1;
+                }
+
+                else {
+                    System.out.println("Trop grand !");
+                    nbTentatives += 1;
+                }
+            }
+            System.out.println("Gagné !");
+            System.out.println("Il vous aura fallu " + nbTentatives + " tentative(s)");
+
+            clavier.nextLine(); // Empecher la non entrée de O/N
+            System.out.println("On continue (O/N) ?");
+            continuer = clavier.nextLine();
+    
+            continuer.toLowerCase();
+            if (continuer.equals("n")) {
+                System.out.println("Merci d'avoir joué !");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         // demanderEntierEtAfficherParite(); // 1
@@ -321,6 +552,11 @@ public class App {
         // motif10();
         // motif11();
         // motif11Bis(8);
+        // devinerNombreVersion1();
+        // devinerNombreVersion2();
+        // devinerNombreVersion3();
+        // devinerNombreVersion4();
+        devinerNombreVersion5();
     }   
 
 
@@ -560,18 +796,18 @@ public class App {
         // Scanner clavier = new Scanner(System.in);
 
         // System.out.println("Entrez un nombre : ");
-        // int NombreUtilisateur = clavier.nextInt();
+        // int nombreUtilisateur = clavier.nextInt();
         // clavier.close();
 
-        // System.out.println("Vous proposez : " + NombreUtilisateur);
+        // System.out.println("Vous proposez : " + nombreUtilisateur);
         // System.out.println("Le nombre auquel je pensais était : " + nb);
 
-        // if (NombreUtilisateur == nb) {
+        // if (nombreUtilisateur == nb) {
         //     System.out.println("Vous avez trouvé le bon nombre !");
         // }
         // else {
             
-        //     System.out.println("Vous étiez à "+ Math.abs(nb - NombreUtilisateur) + " de la bonne réponse.");
+        //     System.out.println("Vous étiez à "+ Math.abs(nb - nombreUtilisateur) + " de la bonne réponse.");
         // }
     
 }
