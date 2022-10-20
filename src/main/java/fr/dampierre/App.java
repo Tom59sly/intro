@@ -308,6 +308,23 @@ public class App {
         } System.out.print("+\n");
     }
 
+    public static void motif13(int hauteur) {
+        for (int i = (hauteur-1) * 4; i > 0; i-=4) {
+            for (int j = 0; j < i; j++) {
+                System.err.print("/");
+            }
+ 
+            for (int j = 0; j > i; j++) { // Trouver comment boucler pour afficher les *
+                System.out.print("*");
+            }
+
+            for (int j = 0; j < i; j++) {
+                System.out.print("\\");
+            }
+            System.out.println();
+        }
+    }
+
     
     // TP4 - Jeu a deviner
     public static void devinerNombreVersion1() {
@@ -641,7 +658,7 @@ public class App {
         for (int i = 1; i <= nbParties ; i++) { // LAncement du jeu
             Random random = new Random();
             int nombreATrouver = random.nextInt(100) + 1;
-            int nombreOrdinateur = 0;
+            int nombreOrdinateur;
             int nbTentatives = 0;
             boolean gagne = false;
             int debut = 1;
@@ -696,7 +713,13 @@ public class App {
         // motif10();
         // motif11();
         // motif11Bis(8);
-        motif12(3);
+        // motif12(3);
+        // motif13(5);
+        // System.out.println("////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\".length());
+        // System.out.println("////////////********\\\\\\\\\\\\\\\\\\\\\\\\".length());
+        // System.out.println("////////****************\\\\\\\\\\\\\\\\".length());
+        // System.out.println("////************************\\\\\\\\".length());
+        // System.out.println("********************************".length());
         // devinerNombreVersion1();
         // devinerNombreVersion2();
         // devinerNombreVersion3();
